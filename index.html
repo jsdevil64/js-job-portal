@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Job Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <section id="landingView" class="view">
+    <div class="landing-card">
+      <div class="brand-mark">JS</div>
+      <h1>JS Job Portal</h1>
+      <p>Find opportunities. Hire talent. Build your future.</p>
+      <button id="startBtn" class="btn primary">Start</button>
+    </div>
+  </section>
+
+  <section id="homeView" class="view hidden">
+    <header class="topbar">
+      <div class="brand">JS Job Portal</div>
+      <button class="btn ghost" data-action="go-home">Home</button>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">LOCAL JOB MARKET</span>
+          <h2>Connect job seekers with trusted providers.</h2>
+          <p>Real-time portal statistics are loaded from Firebase.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat"><span id="homeSeekers">0</span><small>Students / Seekers</small></div>
+          <div class="stat"><span id="homeJobs">0</span><small>Jobs</small></div>
+          <div class="stat"><span id="homeProviders">0</span><small>Providers / Shops</small></div>
+        </div>
+      </section>
+      <div class="choice-grid">
+        <button class="choice-card" data-role="seeker">
+          <span class="choice-icon">🎓</span>
+          <h3>I'm a Job Seeker</h3>
+          <p>Search jobs and track applications.</p>
+        </button>
+        <button class="choice-card" data-role="provider">
+          <span class="choice-icon">🏢</span>
+          <h3>I'm a Job Provider</h3>
+          <p>Post vacancies and manage applications.</p>
+        </button>
+      </div>
+    </main>
+  </section>
+
+  <section id="authView" class="view hidden">
+    <div class="auth-shell">
+      <button class="back-link" data-action="go-home">← Back</button>
+      <div class="auth-card">
+        <div class="brand-mark small">JS</div>
+        <h2 id="authTitle">Job Seeker Login</h2>
+        <p id="authSubtitle">Sign in to your account.</p>
+
+        <form id="loginForm">
+          <label>Email<input id="loginEmail" type="email" required></label>
+          <label>Password<input id="loginPassword" type="password" required minlength="6"></label>
+          <button class="btn primary full" type="submit">Login</button>
+        </form>
+
+        <form id="registerForm" class="hidden">
+          <div id="providerFields" class="hidden">
+            <label>Company / Shop Name<input id="companyName" type="text"></label>
+            <label>Person Name<input id="providerPersonName" type="text"></label>
+          </div>
+          <div id="seekerFields">
+            <label>Name<input id="seekerName" type="text"></label>
+          </div>
+          <label>Profile Photo<input id="profilePhoto" type="file" accept="image/*"></label>
+          <label>Phone Number<input id="registerPhone" type="tel" required></label>
+          <label>Email<input id="registerEmail" type="email" required></label>
+          <label>Password<input id="registerPassword" type="password" required minlength="6"></label>
+          <button class="btn primary full" type="submit">Register & Verify Email</button>
+        </form>
+
+        <div class="auth-links">
+          <button id="toggleRegister" class="text-btn">Create account</button>
+          <button id="forgotBtn" class="text-btn">Forgot password?</button>
+        </div>
+        <div id="authNote" class="note"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboardView" class="view hidden">
+    <header class="topbar">
+      <div class="brand">JS Job Portal</div>
+      <div class="top-user"><span id="topUserName"></span></div>
+    </header>
+    <main class="dashboard-layout">
+      <aside class="sidebar">
+        <button class="nav-btn active" data-section="dashboard">⌂ Dashboard</button>
+        <button class="nav-btn" data-section="users">👥 Total Users</button>
+        <button class="nav-btn" data-section="jobs">💼 <span id="jobsNavText">Post Jobs</span></button>
+        <button class="nav-btn" data-section="applications">📋 Applications</button>
+        <button class="nav-btn" data-section="profile">👤 Profile</button>
+      </aside>
+      <section class="dash-content">
+        <div id="dashboardSection" class="dash-section"></div>
+        <div id="usersSection" class="dash-section hidden"></div>
+        <div id="jobsSection" class="dash-section hidden"></div>
+        <div id="applicationsSection" class="dash-section hidden"></div>
+        <div id="profileSection" class="dash-section hidden"></div>
+      </section>
+    </main>
+  </section>
+
+  <div id="jobModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" data-close-modal>×</button>
+      <h2 id="jobModalTitle">Post a Job</h2>
+      <form id="jobForm">
+        <input type="hidden" id="editJobId">
+        <label>Job Title<input id="jobTitle" required></label>
+        <label>Department<input id="jobDepartment" required></label>
+        <label>Job Type
+          <select id="jobType"><option>Full Time</option><option>Part Time</option><option>Contract</option><option>Internship</option></select>
+        </label>
+        <label>Experience Level<input id="jobExperience" placeholder="Fresher / 1-3 Years" required></label>
+        <label>Salary Range<input id="jobSalary" placeholder="₹15,000 - ₹25,000"></label>
+        <label>Job Description<textarea id="jobDescription" required></textarea></label>
+        <label>Requirements<textarea id="jobRequirements" required></textarea></label>
+        <label>Application Deadline<input id="jobDeadline" type="date" required></label>
+        <button class="btn primary full" type="submit">Save Job</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
