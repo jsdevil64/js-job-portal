@@ -1,10 +1,11 @@
 // Replace these values with your Firebase Web App configuration.
 // Firebase Console -> Project settings -> Your apps -> Web app.
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.firebasestorage.app",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCBtnOkztb6Kqs6eMVoloJh7GyOUedDfGI",
+  authDomain: "jobbridge-143.firebaseapp.com",
+  projectId: "jobbridge-143",
+  storageBucket: "jobbridge-143.firebasestorage.app",
+  messagingSenderId: "9413213507",
+  appId: "1:9413213507:web:57cf65770e3a3f989a83f6"
 };
+
